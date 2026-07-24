@@ -79,7 +79,7 @@ min_value = gdp_df['Year'].min()
 max_value = gdp_df['Year'].max()
 
 from_year, to_year = st.slider(
-    'Which years are you interested in?',
+    'Tahun berapa yang di inginkan?',
     min_value=min_value,
     max_value=max_value,
     value=[min_value, max_value])
@@ -87,10 +87,10 @@ from_year, to_year = st.slider(
 countries = gdp_df['Country Code'].unique()
 
 if not len(countries):
-    st.warning("Select at least one country")
+    st.warning("Pilih minimal 1 negara")
 
 selected_countries = st.multiselect(
-    'Which countries would you like to view?',
+    'Negara mana yang ingin dilihat?',
     countries,
     ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
 
@@ -105,15 +105,15 @@ filtered_gdp_df = gdp_df[
     & (from_year <= gdp_df['Year'])
 ]
 
-st.header('GDP over time', divider='gray')
+st.header('GDP Waktu ke Waktu', divider='gray')
 
 ''
 
 st.line_chart(
     filtered_gdp_df,
-    x='Year',
+    x='Tahun',
     y='GDP',
-    color='Country Code',
+    color='Kode Negara',
 )
 
 ''
@@ -123,7 +123,7 @@ st.line_chart(
 first_year = gdp_df[gdp_df['Year'] == from_year]
 last_year = gdp_df[gdp_df['Year'] == to_year]
 
-st.header(f'GDP in {to_year}', divider='gray')
+st.header(f'GDP Tahun {to_year}', divider='gray')
 
 ''
 
