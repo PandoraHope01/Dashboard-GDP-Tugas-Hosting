@@ -111,9 +111,9 @@ st.header('GDP Waktu ke Waktu', divider='gray')
 
 st.line_chart(
     filtered_gdp_df,
-    x='Tahun',
+    x='Year',
     y='GDP',
-    color='Kode Negara',
+    color='Country Code',
 )
 
 ''
